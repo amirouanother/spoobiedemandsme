@@ -7,6 +7,7 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
+    overflow: hidden; /* Prevent scrollbars if elements overflow */
 }
 
 #main-menu, #settings-menu {
@@ -30,6 +31,7 @@ button {
     cursor: pointer;
     font-size: 16px;
     margin: 10px;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
@@ -40,10 +42,12 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%; /* Use full width on mobile */
 }
 
 #game-board {
-    width: 600px; /* Example width */
+    width: 100%; /* Responsive width */
+    max-width: 600px; /* Max width for larger screens */
     height: 400px; /* Example height */
     background-color: #1a1a1a;
     border: 5px solid #4CAF50;
@@ -58,34 +62,110 @@ button:hover {
     width: 30px;
     height: 40px;
     background-color: blue; /* Default, will be changed by JS */
+    border-radius: 4px; /* Slightly rounded corners */
 }
 
 .platform {
     position: absolute;
     background-color: #777;
     border: 2px solid #555;
+    border-radius: 3px;
 }
 
 #hud {
     display: flex;
     justify-content: space-around;
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+#scoreboard {
+    flex: 1; /* Allow scoreboard to take available space */
+    min-width: 150px; /* Minimum width */
+    margin: 10px;
 }
 
 #scoreboard ul {
     list-style: none;
     padding: 0;
+    text-align: left;
 }
 
 #scoreboard li {
     margin-bottom: 5px;
+    font-size: 14px;
+}
+
+#power-ups {
+    flex: 1;
+    min-width: 150px;
+    margin: 10px;
 }
 
 #power-ups button {
     background-color: #f44336;
+    padding: 10px 20px;
+    font-size: 14px;
 }
 
 #power-ups button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
+}
+
+/* Mobile Controls Styling */
+#mobile-controls {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed position to stay on screen */
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    width: 90%;
+    max-width: 400px; /* Max width for controls */
+    justify-content: center;
+    align-items: center;
+}
+
+#mobile-controls button {
+    width: 80px;
+    height: 80px;
+    font-size: 20px;
+    border-radius: 50%;
+    margin: 10px;
+    background-color: rgba(76, 175, 80, 0.8); /* Slightly transparent green */
+}
+
+#mobile-controls button:hover {
+    background-color: #45a049;
+}
+
+/* Show mobile controls on smaller screens */
+@media (max-width: 768px) {
+    #mobile-controls {
+        display: flex;
+    }
+    /* Adjust game board and HUD for mobile */
+    #game-board {
+        height: 300px; /* Smaller height on mobile */
+    }
+    #hud {
+        flex-direction: column;
+        align-items: center;
+    }
+    #scoreboard, #power-ups {
+        width: 90%;
+        text-align: center;
+    }
+    #scoreboard li {
+        font-size: 12px;
+    }
+}
+
+/* Gamepad Specific Styles (optional) */
+.gamepad-indicator {
+    color: #f44336;
+    font-size: 12px;
+    margin-left: 10px;
 }
