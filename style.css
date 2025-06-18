@@ -1,0 +1,91 @@
+body {
+    font-family: 'Press Start 2P', cursive; /* Example retro font */
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+#main-menu, #settings-menu {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+#settings-menu {
+    margin-top: 20px;
+    display: none; /* Hidden by default */
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#game-board {
+    width: 600px; /* Example width */
+    height: 400px; /* Example height */
+    background-color: #1a1a1a;
+    border: 5px solid #4CAF50;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+/* Add styles for game elements like players, bots, platforms, etc. */
+.player, .bot {
+    position: absolute;
+    width: 30px;
+    height: 40px;
+    background-color: blue; /* Default, will be changed by JS */
+}
+
+.platform {
+    position: absolute;
+    background-color: #777;
+    border: 2px solid #555;
+}
+
+#hud {
+    display: flex;
+    justify-content: space-around;
+    width: 600px;
+}
+
+#scoreboard ul {
+    list-style: none;
+    padding: 0;
+}
+
+#scoreboard li {
+    margin-bottom: 5px;
+}
+
+#power-ups button {
+    background-color: #f44336;
+}
+
+#power-ups button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
