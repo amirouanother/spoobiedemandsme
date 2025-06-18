@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donkey Kong Style Race</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="main-menu">
+        <h1>Donkey Kong Style Race</h1>
+        <p>Idea by: @macaspoobie</p>
+        <p>Presented by: Sigma</p>
+        <button id="start-game-btn">Start Game</button>
+        <div id="settings-menu">
+            <h2>Settings</h2>
+            <label for="bot-difficulty">Bot Difficulty:</label>
+            <select id="bot-difficulty">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+            <br>
+            <label for="player-color">Player Color:</label>
+            <select id="player-color">
+                <option value="blue">Blue</option>
+                <option value="red">Red</option>
+                <option value="green">Green</option>
+            </select>
+            <button id="save-settings-btn">Save Settings</button>
+        </div>
+        <button id="settings-btn">Settings</button>
+    </div>
+
+    <div id="game-container" style="display: none;">
+        <div id="game-board">
+            <!-- Game elements (platforms, player, bots, items) will be generated here -->
+        </div>
+        <div id="hud">
+            <div id="scoreboard">
+                <h2>Scoreboard</h2>
+                <ul id="score-list">
+                    <!-- Scores will be updated here -->
+                </ul>
+            </div>
+            <div id="power-ups">
+                <h3>Power-ups</h3>
+                <button id="use-powerup-btn" disabled>Use Power-up</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
